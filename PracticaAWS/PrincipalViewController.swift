@@ -22,6 +22,7 @@ class PrincipalViewController: UIViewController {
     }
     
     @IBAction func userLoggedAction(_ sender: AnyObject) {
+        
         let storyBoardL = UIStoryboard(name: "Logged", bundle: Bundle.main)
         let vc = storyBoardL.instantiateViewController(withIdentifier: "loggedScene")
         

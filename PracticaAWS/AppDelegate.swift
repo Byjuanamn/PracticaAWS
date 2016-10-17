@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        pruebaAWS()
+        warmUpAWS()
         return true
     }
 
@@ -91,19 +91,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func pruebaAWS() {
+    func warmUpAWS() {
         
         // Logger
         AWSLogger.default().logLevel = .verbose
         
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType:.euWest1,
-            identityPoolId:"eu-west-1:ad08024f-411b-4f0d-a03a-7cdad45e895d")
-        let configuration = AWSServiceConfiguration(
-            region:.euWest1, credentialsProvider:credentialsProvider)
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
         
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

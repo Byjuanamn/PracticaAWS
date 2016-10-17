@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import AWSCore
+import AWSCognito
 
 class AnomymousViewController: UITableViewController {
 
+    let credentialsProvider = AWSCognitoCredentialsProvider(
+        regionType:.euWest1,
+        identityPoolId:"eu-west-1:8e482ce0-358e-4948-98ff-923d7289b8c1")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +31,19 @@ class AnomymousViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - AWS code
+    
+    func startWithAWSAnonymous() {
+        
+        
+        let configuration = AWSServiceConfiguration(
+            region:.euWest1, credentialsProvider:credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+    }
+    
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
