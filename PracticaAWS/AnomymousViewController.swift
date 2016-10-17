@@ -16,14 +16,25 @@ class AnomymousViewController: UITableViewController {
         regionType:.euWest1,
         identityPoolId:"eu-west-1:8e482ce0-358e-4948-98ff-923d7289b8c1")
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+       
+        startWithAWSAnonymous()
+        cognitoSyncAnonymousUserData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        let syncCognito = AWSCognito.default()
+
+        let dataSet = syncCognito?.openOrCreateDataset("AnonymousDataSet")
+        
+        if let colorFondo = dataSet?.string(forKey: "Color Thema") {
+            self.tableView.backgroundColor = UIColor(hexString: colorFondo)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +50,33 @@ class AnomymousViewController: UITableViewController {
         let configuration = AWSServiceConfiguration(
             region:.euWest1, credentialsProvider:credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+    }
+    
+    // - Cognito
+    
+    func cognitoSyncAnonymousUserData() {
+        
+        let syncCognito = AWSCognito.default()
+
+        
+        let dataSet = syncCognito?.openOrCreateDataset("AnonymousDataSet")
+        
+        dataSet?.setString("Anonymous", forKey: "Client Type")
+        dataSet?.setString(UUID().uuidString, forKey: "anonymousID")
+    
+        dataSet?.setString(UIColor.orange.toHexString(), forKey: "Color Thema")
+        
+        dataSet?.synchronizeOnConnectivity().continue({ (task) -> Any? in
+            
+            if let _ = task.error {
+                print("Tenemos un error \(task.error)")
+            }
+            
+            return nil
+            
+        })
+        
     }
     
     
@@ -112,3 +150,48 @@ class AnomymousViewController: UITableViewController {
     */
 
 }
+
+extension UIColor {
+    convenience init(hexString:String) {
+        let hexString:NSString = (hexString as NSString).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) as NSString
+        let scanner            = Scanner(string: hexString as String)
+        
+        if (hexString.hasPrefix("#")) {
+            scanner.scanLocation = 1
+        }
+        
+        var color:UInt32 = 0
+        scanner.scanHexInt32(&color)
+        
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        
+        let red   = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue  = CGFloat(b) / 255.0
+        
+        self.init(red:red, green:green, blue:blue, alpha:1)
+    }
+    
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return NSString(format:"#%06x", rgb) as String
+    }
+}
+
+
+
+
+
+
+

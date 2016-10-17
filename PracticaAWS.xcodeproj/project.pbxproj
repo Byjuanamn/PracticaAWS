@@ -12,6 +12,10 @@
 		5D14C6601DB5199C00222419 /* PracticaAWS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D14C65E1DB5199C00222419 /* PracticaAWS.xcdatamodeld */; };
 		5D14C6621DB5199C00222419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D14C6611DB5199C00222419 /* Assets.xcassets */; };
 		5D14C6651DB5199C00222419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D14C6631DB5199C00222419 /* LaunchScreen.storyboard */; };
+		5D67080B1DB5855D00CD211E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6708071DB5855D00CD211E /* Fabric.framework */; };
+		5D67080C1DB5855D00CD211E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6708081DB5855D00CD211E /* TwitterKit.framework */; };
+		5D67080D1DB5855D00CD211E /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D6708091DB5855D00CD211E /* TwitterKitResources.bundle */; };
+		5D67080E1DB5855D00CD211E /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D67080A1DB5855D00CD211E /* TwitterCore.framework */; };
 		5D8C06A11DB522D000E63F6E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */; };
 		5D8C06A41DB5230C00E63F6E /* Anonymous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */; };
 		5D8C06A61DB5232100E63F6E /* Authenticated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */; };
@@ -31,6 +35,10 @@
 		5D14C6611DB5199C00222419 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D14C6641DB5199C00222419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D14C6661DB5199C00222419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D6708071DB5855D00CD211E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		5D6708081DB5855D00CD211E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		5D6708091DB5855D00CD211E /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		5D67080A1DB5855D00CD211E /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Anonymous.storyboard; sourceTree = "<group>"; };
 		5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authenticated.storyboard; sourceTree = "<group>"; };
@@ -46,6 +54,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6427DEFB81840A0706AD47 /* Pods_PracticaAWS.framework in Frameworks */,
+				5D67080E1DB5855D00CD211E /* TwitterCore.framework in Frameworks */,
+				5D67080B1DB5855D00CD211E /* Fabric.framework in Frameworks */,
+				5D67080C1DB5855D00CD211E /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +66,7 @@
 		5D14C64B1DB5199C00222419 = {
 			isa = PBXGroup;
 			children = (
+				5D67080F1DB5858200CD211E /* Frameworks */,
 				5D8C06AE1DB52EAA00E63F6E /* Alumnos */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +93,17 @@
 				5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */,
 			);
 			path = PracticaAWS;
+			sourceTree = "<group>";
+		};
+		5D67080F1DB5858200CD211E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D6708071DB5855D00CD211E /* Fabric.framework */,
+				5D6708081DB5855D00CD211E /* TwitterKit.framework */,
+				5D6708091DB5855D00CD211E /* TwitterKitResources.bundle */,
+				5D67080A1DB5855D00CD211E /* TwitterCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5D8C069F1DB522AD00E63F6E /* Main */ = {
@@ -151,6 +174,7 @@
 				5D14C6521DB5199C00222419 /* Resources */,
 				833013FE6C2EBEE18310CC7D /* [CP] Embed Pods Frameworks */,
 				555DF6C953F56ED55A08EF60 /* [CP] Copy Pods Resources */,
+				5D6708061DB5851F00CD211E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -202,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D8C06A41DB5230C00E63F6E /* Anonymous.storyboard in Resources */,
+				5D67080D1DB5855D00CD211E /* TwitterKitResources.bundle in Resources */,
 				5D14C6651DB5199C00222419 /* LaunchScreen.storyboard in Resources */,
 				5D8C06AB1DB526CB00E63F6E /* Logged.storyboard in Resources */,
 				5D14C6621DB5199C00222419 /* Assets.xcassets in Resources */,
@@ -227,6 +252,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PracticaAWS/Pods-PracticaAWS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5D6708061DB5851F00CD211E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b14f02166712d2cc7d6df4684e7a49a4aeb846cc dd14936e54e74ecb902c76a36e9c8a3081296907340ac36dcf81407bba7d7ead";
 		};
 		833013FE6C2EBEE18310CC7D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -396,6 +434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8Z8X9YVPSZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PracticaAWS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PracticaAWS;
@@ -410,6 +452,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8Z8X9YVPSZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PracticaAWS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PracticaAWS;
