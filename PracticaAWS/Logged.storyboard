@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Logged View Controller-->
         <scene sceneID="Hxt-lz-1j6">
             <objects>
-                <tableViewController id="FKY-1a-SSe" sceneMemberID="viewController">
+                <tableViewController id="FKY-1a-SSe" customClass="LoggedViewController" customModule="PracticaAWS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3zP-76-7Vd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,13 @@
                             <outlet property="delegate" destination="FKY-1a-SSe" id="yi5-mL-nuQ"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Login" id="dDJ-D7-3mX">
+                            <connections>
+                                <action selector="loginWithTwitterAction:" destination="FKY-1a-SSe" id="Jc2-Id-YKN"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="aQf-cL-FQ0"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Age-ME-dcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,13 +45,17 @@
         <!--Navigation Controller-->
         <scene sceneID="n3k-Tp-GBR">
             <objects>
-                <navigationController storyboardIdentifier="loggedScene" automaticallyAdjustsScrollViewInsets="NO" id="Hhz-mS-FtA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loggedScene" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Hhz-mS-FtA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aB2-gY-zmD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fUD-3u-2iQ">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="FKY-1a-SSe" kind="relationship" relationship="rootViewController" id="pOB-K4-KcU"/>
                     </connections>

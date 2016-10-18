@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwitterKit
 
 class LoggedViewController: UITableViewController {
 
@@ -18,6 +19,9 @@ class LoggedViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    @IBAction func loginWithTwitterAction(_ sender: AnyObject) {
+        loginWithTwitter()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,10 +48,10 @@ class LoggedViewController: UITableViewController {
             if let unwrappedSession = session {
                 let alert = UIAlertController(title: "Logged In",
                                               message: "User \(unwrappedSession.userName) has logged in",
-                    preferredStyle: UIAlertControllerStyle.Alert
+                    preferredStyle: UIAlertControllerStyle.alert
                 )
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else {
                 NSLog("Login error: %@", error!.localizedDescription);
             }
