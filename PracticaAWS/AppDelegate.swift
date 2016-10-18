@@ -9,21 +9,23 @@
 import UIKit
 import CoreData
 import AWSCore
-
+import AWSCognito
 import Fabric
 import TwitterKit
+import AWSMobileAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var mobileAnalytics: AWSMobileAnalytics?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         warmUpAWS()
         
-        Fabric.with([Twitter.self])
+        Fabric.with([Twitter.self, AWSCognito.self])
         
         return true
     }
@@ -99,9 +101,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func warmUpAWS() {
         
-        // Logger
-        AWSLogger.default().logLevel = .verbose
+        AWSLogger.default().logLevel = .error
         
+        mobileAnalytics = AWSMobileAnalytics(forAppId: "6709b93559a843319b4858e6b3b93969")
         
     }
 
