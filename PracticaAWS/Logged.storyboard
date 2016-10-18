@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DNJ-Ti-EfQ" id="xcn-KM-kbX">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -36,11 +36,42 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="aQf-cL-FQ0"/>
+                    <navigationItem key="navigationItem" id="aQf-cL-FQ0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="i7y-dr-zSZ">
+                            <connections>
+                                <segue destination="3EZ-21-ebQ" kind="show" identifier="newPost" id="RRA-6f-jhg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Age-ME-dcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1111.2" y="134.48275862068968"/>
+        </scene>
+        <!--New Post View Controller-->
+        <scene sceneID="nqx-lY-4e0">
+            <objects>
+                <viewController id="3EZ-21-ebQ" customClass="NewPostViewController" customModule="PracticaAWS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ySy-aO-5Nc"/>
+                        <viewControllerLayoutGuide type="bottom" id="wrX-qI-EdI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RSW-Zv-XgN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Upload" id="yEw-pE-Pcx">
+                            <connections>
+                                <action selector="uploadAction:" destination="3EZ-21-ebQ" id="xmu-G5-hMY"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KfG-pw-ogV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n3k-Tp-GBR">
