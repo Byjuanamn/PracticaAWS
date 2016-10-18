@@ -8,9 +8,27 @@
 
 import UIKit
 import TwitterKit
+import AWSCore
+import AWSCognito
+
+class CustomAWSProvider: NSObject, AWSIdentityProviderManager{
+    
+    var tokens: NSDictionary
+    init(tokens: [String:String]) {
+        self.tokens = tokens as NSDictionary
+    }
+    
+    @objc func logins() -> AWSTask<NSDictionary> {
+        return AWSTask(result: tokens)
+    }
+}
 
 class LoggedViewController: UITableViewController {
 
+    
+    var credentialsProvider: AWSCredentialsProvider?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,25 +61,64 @@ class LoggedViewController: UITableViewController {
 
     
     func loginWithTwitter() {
-    
-        let logInButton = TWTRLogInButton { (session, error) in
-            if let unwrappedSession = session {
-                let alert = UIAlertController(title: "Logged In",
-                                              message: "User \(unwrappedSession.userName) has logged in",
-                    preferredStyle: UIAlertControllerStyle.alert
-                )
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            } else {
-                NSLog("Login error: %@", error!.localizedDescription);
-            }
-        }
         
-        // TODO: Change where the log in button is positioned in your view
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
+        Twitter.sharedInstance().logIn { (session, error) in
+            if let _ = error {
+                print(error)
+                return
+            }
+            
+            let credentials = (session?.authToken)! + ";" + (session?.authTokenSecret)!
+            
+            let customCrenditials = CustomAWSProvider(tokens: [AWSIdentityProviderTwitter: credentials])
+            
+            self.startWithTwitterCredentials(customCrenditials)
+            
+        }
+    
     }
     
+    
+    func startWithTwitterCredentials(_ credentials: CustomAWSProvider) {
+        
+        
+        credentialsProvider = AWSCognitoCredentialsProvider(regionType: .euWest1,
+                                                            identityPoolId: "",
+                                                            identityProviderManager: credentials)
+        
+        let configuration = AWSServiceConfiguration(
+            region:.euWest1, credentialsProvider:credentialsProvider)
+        
+        
+        
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+
+        // OJO esto ya no es valido
+//        credentialsProvider.logins = ["api.twitter.com": credentials]
+    }
+    
+    
+    
+    /*
+     let logInButton = TWTRLogInButton { (session, error) in
+     if let unwrappedSession = session {
+     let alert = UIAlertController(title: "Logged In",
+     message: "User \(unwrappedSession.userName) has logged in",
+     preferredStyle: UIAlertControllerStyle.alert
+     )
+     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+     self.present(alert, animated: true, completion: nil)
+     } else {
+     NSLog("Login error: %@", error!.localizedDescription);
+     }
+     }
+     
+     // TODO: Change where the log in button is positioned in your view
+     logInButton.center = self.view.center
+     self.view.addSubview(logInButton)
+
+     */
     
     
     /*
