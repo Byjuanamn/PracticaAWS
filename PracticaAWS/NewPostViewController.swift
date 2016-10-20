@@ -17,6 +17,13 @@ class NewPostViewController: UIViewController {
 
     var s3Mgr: AWSS3TransferManager = AWSS3TransferManager.default()
     
+    var userName: String?
+    var userId: String?
+    
+    @IBOutlet weak var postTxt: UITextField!
+    @IBOutlet weak var titleTxt: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
