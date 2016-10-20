@@ -18,6 +18,7 @@
 		5D67080E1DB5855D00CD211E /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D67080A1DB5855D00CD211E /* TwitterCore.framework */; };
 		5D7940CC1DB95B7F00127B18 /* PostEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7940CB1DB95B7F00127B18 /* PostEntry.swift */; };
 		5D7940CE1DB95C8900127B18 /* PostEntryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */; };
+		5D7940D11DB95DEC00127B18 /* PostDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7940D01DB95DEC00127B18 /* PostDataManager.swift */; };
 		5D8C06A11DB522D000E63F6E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */; };
 		5D8C06A41DB5230C00E63F6E /* Anonymous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */; };
 		5D8C06A61DB5232100E63F6E /* Authenticated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */; };
@@ -45,6 +46,7 @@
 		5D67080A1DB5855D00CD211E /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		5D7940CB1DB95B7F00127B18 /* PostEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEntry.swift; sourceTree = "<group>"; };
 		5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEntryDB.swift; sourceTree = "<group>"; };
+		5D7940D01DB95DEC00127B18 /* PostDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataManager.swift; sourceTree = "<group>"; };
 		5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Anonymous.storyboard; sourceTree = "<group>"; };
 		5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authenticated.storyboard; sourceTree = "<group>"; };
@@ -118,8 +120,8 @@
 		5D7940C81DB95B2400127B18 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				5D7940CA1DB95B4500127B18 /* Model Services Entities */,
-				5D7940C91DB95B3E00127B18 /* Model */,
+				5D7940CF1DB95DD000127B18 /* Models */,
+				5D7940D01DB95DEC00127B18 /* PostDataManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -138,6 +140,15 @@
 				5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */,
 			);
 			name = "Model Services Entities";
+			sourceTree = "<group>";
+		};
+		5D7940CF1DB95DD000127B18 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D7940CA1DB95B4500127B18 /* Model Services Entities */,
+				5D7940C91DB95B3E00127B18 /* Model */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		5D8C069F1DB522AD00E63F6E /* Main */ = {
@@ -347,6 +358,7 @@
 				5D14C6581DB5199C00222419 /* AppDelegate.swift in Sources */,
 				5D8C06A81DB5246F00E63F6E /* AnomymousViewController.swift in Sources */,
 				5D7940CC1DB95B7F00127B18 /* PostEntry.swift in Sources */,
+				5D7940D11DB95DEC00127B18 /* PostDataManager.swift in Sources */,
 				5DF510A31DB6D6CC00F73FBE /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
