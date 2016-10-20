@@ -8,28 +8,37 @@
 
 import UIKit
 import TwitterKit
-import AWSCore
-import AWSCognito
+
 import AWSMobileAnalytics
 
 
 
 
 
-class LoggedViewController: UITableViewController {
+class LoggedViewController: UITableViewController, LoggedInteractorOutput {
     
+    var model: [PostEntry] = []
     
-        
+    var interactorInput: LoggedInteractorInput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    
+    func injectedDependencies() {
+        
+        let interactorLogged = LoggedInteractor()
+        
+        self.interactorInput = interactorLogged
+        interactorLogged.interactorOutput = self
+        
+    }
+
+    
+    
     @IBAction func loginWithTwitterAction(_ sender: AnyObject) {
         loginWithTwitter()
     }
@@ -60,13 +69,10 @@ class LoggedViewController: UITableViewController {
             }
             
             print("\(session?.userID)     \(session?.userName)")
+            let credentials = (session?.userID)! + ";" + (session?.userName)!
             
-            
-            let credentials = (session?.authToken)! + ";" + (session?.authTokenSecret)!
-            
-            let customCrenditials = CustomAWSProvider(tokens: [AWSIdentityProviderTwitter: credentials])
-            
-            self.startWithTwitterCredentials(customCrenditials)
+            self.interactorInput?.doLoginInAWS(withCredential: credentials)
+           
             
         }
         
@@ -132,3 +138,43 @@ class LoggedViewController: UITableViewController {
      */
     
 }
+
+extension LoggedViewController {
+    
+    func didAllRecords(_ records: [PostEntry]?) {
+        
+        if let _ = records {
+            model = records!
+            tableView.reloadData()
+        }
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

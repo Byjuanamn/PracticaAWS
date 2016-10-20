@@ -11,26 +11,14 @@ import AWSCognito
 import AWSCore
 
 
-class CustomAWSProvider: NSObject, AWSIdentityProviderManager{
-    
-    var tokens: NSDictionary
-    init(tokens: [String:String]) {
-        self.tokens = tokens as NSDictionary
-    }
-    
-    @objc func logins() -> AWSTask<NSDictionary> {
-        return AWSTask(result: tokens)
-    }
-}
-
 
 protocol LoggedInteractorInput {
     
     func doLoginInAWS(withCredential credential: String)
-    func removeRecord(item: PostEntry)
+//    func removeRecord(item: PostEntry)
     
-    func readAllRecords()
-    func readAllMyRecords(_ me: String)
+//    func readAllRecords()
+//    func readAllMyRecords(_ me: String)
     
 }
 
@@ -42,9 +30,9 @@ protocol LoggedInteractorOutput {
 
 
 
-class LoggedInteractor: NSObject {
+class LoggedInteractor: NSObject, LoggedInteractorInput {
 
-    
+    var interactorOutput: LoggedInteractorOutput?
     var credentialsProvider: AWSCognitoCredentialsProvider?
 
     
@@ -129,3 +117,29 @@ class LoggedInteractor: NSObject {
     }
 
 }
+
+extension LoggedInteractor {
+    func doLoginInAWS(withCredential credential: String) {
+        
+        let customProvider = CustomAWSProvider(tokens: [AWSIdentityProviderTwitter : credential])
+        self.startWithTwitterCredentials(customProvider)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

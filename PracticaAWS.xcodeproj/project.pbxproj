@@ -27,6 +27,7 @@
 		5D8C06A81DB5246F00E63F6E /* AnomymousViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C06A71DB5246F00E63F6E /* AnomymousViewController.swift */; };
 		5D8C06AB1DB526CB00E63F6E /* Logged.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06AA1DB526CB00E63F6E /* Logged.storyboard */; };
 		5D8C06AD1DB526E500E63F6E /* LoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C06AC1DB526E500E63F6E /* LoggedViewController.swift */; };
+		5DD039581DB9682E0088E7B3 /* CustomAWSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD039571DB9682E0088E7B3 /* CustomAWSProvider.swift */; };
 		5DF510A31DB6D6CC00F73FBE /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF510A21DB6D6CC00F73FBE /* NewPostViewController.swift */; };
 		5DF510A51DB6D9E700F73FBE /* winter-is-coming.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5DF510A41DB6D9E700F73FBE /* winter-is-coming.jpg */; };
 		BB6427DEFB81840A0706AD47 /* Pods_PracticaAWS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F545FA6D1A0318D23B2F0B /* Pods_PracticaAWS.framework */; };
@@ -57,6 +58,7 @@
 		5D8C06A71DB5246F00E63F6E /* AnomymousViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnomymousViewController.swift; sourceTree = "<group>"; };
 		5D8C06AA1DB526CB00E63F6E /* Logged.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Logged.storyboard; sourceTree = "<group>"; };
 		5D8C06AC1DB526E500E63F6E /* LoggedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedViewController.swift; sourceTree = "<group>"; };
+		5DD039571DB9682E0088E7B3 /* CustomAWSProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAWSProvider.swift; sourceTree = "<group>"; };
 		5DF510A21DB6D6CC00F73FBE /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		5DF510A41DB6D9E700F73FBE /* winter-is-coming.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "winter-is-coming.jpg"; sourceTree = "<group>"; };
 		A6F545FA6D1A0318D23B2F0B /* Pods_PracticaAWS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PracticaAWS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		5D14C64B1DB5199C00222419 = {
 			isa = PBXGroup;
 			children = (
+				5DD039561DB968180088E7B3 /* Comun */,
 				5DF510A41DB6D9E700F73FBE /* winter-is-coming.jpg */,
 				5D67080F1DB5858200CD211E /* Frameworks */,
 				5D8C06AE1DB52EAA00E63F6E /* Alumnos */,
@@ -203,6 +206,14 @@
 				76DD089A7B94636063E3B5A2 /* Frameworks */,
 			);
 			name = Alumnos;
+			sourceTree = "<group>";
+		};
+		5DD039561DB968180088E7B3 /* Comun */ = {
+			isa = PBXGroup;
+			children = (
+				5DD039571DB9682E0088E7B3 /* CustomAWSProvider.swift */,
+			);
+			name = Comun;
 			sourceTree = "<group>";
 		};
 		76DD089A7B94636063E3B5A2 /* Frameworks */ = {
@@ -372,6 +383,7 @@
 				5D14C6581DB5199C00222419 /* AppDelegate.swift in Sources */,
 				5D8C06A81DB5246F00E63F6E /* AnomymousViewController.swift in Sources */,
 				5D7940D61DB961FC00127B18 /* PostsInteractor.swift in Sources */,
+				5DD039581DB9682E0088E7B3 /* CustomAWSProvider.swift in Sources */,
 				5D7940D41DB961C800127B18 /* LoggedInteractor.swift in Sources */,
 				5D7940CC1DB95B7F00127B18 /* PostEntry.swift in Sources */,
 				5D7940D11DB95DEC00127B18 /* PostDataManager.swift in Sources */,
