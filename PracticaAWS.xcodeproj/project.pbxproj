@@ -16,6 +16,8 @@
 		5D67080C1DB5855D00CD211E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6708081DB5855D00CD211E /* TwitterKit.framework */; };
 		5D67080D1DB5855D00CD211E /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D6708091DB5855D00CD211E /* TwitterKitResources.bundle */; };
 		5D67080E1DB5855D00CD211E /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D67080A1DB5855D00CD211E /* TwitterCore.framework */; };
+		5D7940CC1DB95B7F00127B18 /* PostEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7940CB1DB95B7F00127B18 /* PostEntry.swift */; };
+		5D7940CE1DB95C8900127B18 /* PostEntryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */; };
 		5D8C06A11DB522D000E63F6E /* PrincipalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */; };
 		5D8C06A41DB5230C00E63F6E /* Anonymous.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */; };
 		5D8C06A61DB5232100E63F6E /* Authenticated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */; };
@@ -41,6 +43,8 @@
 		5D6708081DB5855D00CD211E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
 		5D6708091DB5855D00CD211E /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		5D67080A1DB5855D00CD211E /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		5D7940CB1DB95B7F00127B18 /* PostEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEntry.swift; sourceTree = "<group>"; };
+		5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostEntryDB.swift; sourceTree = "<group>"; };
 		5D8C06A01DB522D000E63F6E /* PrincipalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrincipalViewController.swift; sourceTree = "<group>"; };
 		5D8C06A31DB5230C00E63F6E /* Anonymous.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Anonymous.storyboard; sourceTree = "<group>"; };
 		5D8C06A51DB5232100E63F6E /* Authenticated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authenticated.storyboard; sourceTree = "<group>"; };
@@ -111,6 +115,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D7940C81DB95B2400127B18 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5D7940CA1DB95B4500127B18 /* Model Services Entities */,
+				5D7940C91DB95B3E00127B18 /* Model */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		5D7940C91DB95B3E00127B18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D7940CB1DB95B7F00127B18 /* PostEntry.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5D7940CA1DB95B4500127B18 /* Model Services Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5D7940CD1DB95C8900127B18 /* PostEntryDB.swift */,
+			);
+			name = "Model Services Entities";
+			sourceTree = "<group>";
+		};
 		5D8C069F1DB522AD00E63F6E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +161,7 @@
 		5D8C06A91DB526AE00E63F6E /* Logged */ = {
 			isa = PBXGroup;
 			children = (
+				5D7940C81DB95B2400127B18 /* Managers */,
 				5D8C06AA1DB526CB00E63F6E /* Logged.storyboard */,
 				5D8C06AC1DB526E500E63F6E /* LoggedViewController.swift */,
 				5DF510A21DB6D6CC00F73FBE /* NewPostViewController.swift */,
@@ -312,9 +342,11 @@
 			files = (
 				5D8C06A11DB522D000E63F6E /* PrincipalViewController.swift in Sources */,
 				5D14C6601DB5199C00222419 /* PracticaAWS.xcdatamodeld in Sources */,
+				5D7940CE1DB95C8900127B18 /* PostEntryDB.swift in Sources */,
 				5D8C06AD1DB526E500E63F6E /* LoggedViewController.swift in Sources */,
 				5D14C6581DB5199C00222419 /* AppDelegate.swift in Sources */,
 				5D8C06A81DB5246F00E63F6E /* AnomymousViewController.swift in Sources */,
+				5D7940CC1DB95B7F00127B18 /* PostEntry.swift in Sources */,
 				5DF510A31DB6D6CC00F73FBE /* NewPostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

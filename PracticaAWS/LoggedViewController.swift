@@ -70,6 +70,9 @@ class LoggedViewController: UITableViewController {
                 return
             }
             
+            print("\(session?.userID)     \(session?.userName)")
+            
+            
             let credentials = (session?.authToken)! + ";" + (session?.authTokenSecret)!
             
             let customCrenditials = CustomAWSProvider(tokens: [AWSIdentityProviderTwitter: credentials])

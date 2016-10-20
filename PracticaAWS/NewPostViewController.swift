@@ -36,21 +36,21 @@ class NewPostViewController: UIViewController {
         
         let request = prepareRequest()
         
-        let task = s3Mgr.upload(request)
+        s3Mgr.upload(request).continue ({ (task) -> Any? in
             
-        task?.continue(with: AWSExecutor.mainThread(), withSuccessBlock: { (tassk) -> Any? in
-            
-            if let _ = task?.error {
-             
-                print(task?.error)
+            if let _ = task.error {
+                
+                print(task.error)
             }
             
-            if let _ = task?.result {
-                let blob = task?.result as? AWSS3TransferManagerUploadOutput
+            if let _ = task.result {
+                let blob = task.result as? AWSS3TransferManagerUploadOutput
                 print(blob?.eTag)
             }
             return nil
         })
+            
+        
         
     }
     
